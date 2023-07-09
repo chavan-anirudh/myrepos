@@ -44,4 +44,14 @@ public class MovieServiceImpl implements MovieServices {
 		return (Movie) movieRepo.findByMovieName(moviename).orElseThrow(() -> new ResourceNotFoundException("Movie Not found"));
 	}
 
+	@Override
+	public String deleteTheMovie(Long id) {
+		String msg="Can't be deleted...";
+		if(movieRepo.existsById(id)) {
+			movieRepo.deleteById(id);
+			msg="Movie deleted successfully";
+		}
+		return msg;
+	}
+
 }
