@@ -14,4 +14,6 @@ public interface MovieServices {
 
 	Movie getMovieByName(String moviename);
 
+	String deleteTheMovie(Long id);
+
 }
